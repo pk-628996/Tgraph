@@ -48,7 +48,7 @@ async def cb_data(bot, update):
            disable_web_page_preview=True
        ),
     elif update.data == 'menu':
-       await update.message.edit_text(
+       await update.message.reply_markup(
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
        ),
