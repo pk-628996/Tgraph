@@ -1,4 +1,5 @@
 import os 
+import Buttons
 from pyrogram import Client, filters
 from telegraph import upload_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -40,8 +41,20 @@ async def id(pk, message):
 async def cb_data(bot, update):
     if update.data == 'about':
        await update.message.edit_text(
-           text=ABOUT_TEXT
-       )
+           text=ABOUT_TEXT,
+           disable_web_page_preview=True,
+           reply_markup=ABOUT_BUTTON
+       ),
+    elif update.data == 'menu':
+       await update.message.reply_message(
+          reply_markup=MENU_BUTTON,
+          disable_web_page_preview=True
+       ),
+    elif update.data == 'close':
+       await update.message.reply_message(
+          text="""closed""",
+          disable_web_page_preview=True
+       ),    
     else:
         await update.message.delete()
 
