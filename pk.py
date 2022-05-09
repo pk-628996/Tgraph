@@ -46,7 +46,43 @@ async def getmedia(pk, update):
  
    try:
       message = await update.reply_message(
+       text="Downloading...",
+       quote=True,
+       disable_web_page_preview=True
+      )
+      await pk.download_media(
+       message=update,
+       file_name=medianame
+      )
+      response = upload_file(medianame)
+      try: 
+           os.remove(medianame)
+      except:
+          pass
+   except Exception as error:
+        text=f"Error :- <code>{error}</code>"
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton('More Help', callback_data='help')]]
+        )
+        await message.edit_text(
+            text="Text",
+            disable_web_page_preview=True,
+            reply_markup=reply_markup
+        )
+        return
 
+    text=f"**Link :-** `https://telegra.ph{response[0]}`\n\n**Join :-** @FayasNoushad"
+    reply_markup=InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(text="Open Link", url=f"https://telegra.ph{response[0]}"),
+                InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://telegra.ph{response[0]}")
+            ],
+            [
+                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/FayasNoushad")
+            ]
+        ]
+    )
 @Pk.on_callback_query()
 async def cb_data(bot, update):
     if update.data == 'about':
