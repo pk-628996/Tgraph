@@ -28,8 +28,8 @@ async def start(pk, update):
 @Pk.on_message(filters.private & filters.command("id"))
 async def id(pk, send):
  
-   await send.send_message(
-    text="""here is your chat id {chat_id}"""
+   await send.reply_text(
+    text=f" 'here is your id {update.chat_id.mention},"
    )
 
 
