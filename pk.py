@@ -42,8 +42,7 @@ async def cb_data(bot, update):
     if update.data == 'about':
        await update.message.edit_text(
            text=ABOUT_TEXT,
-           disable_web_page_preview=True,
-           reply_markup=ABOUT_BUTTON
+           disable_web_page_preview=True
        ),
     elif update.data == 'menu':
        await update.message.reply_message(
