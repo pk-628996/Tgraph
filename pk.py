@@ -62,21 +62,26 @@ async def getmedia(pk, update):
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton('More Help', callback_data='help')]]
         )
-    text=f"**Link :-** `https://telegra.ph{response[0]}`"
-    reply_markup=InlineKeyboardMarkup(
+        await message.edit_text(
+            text=text,
+            disable_web_page_preview=True,
+            reply_markup=reply_markup
+        )
+        return
+text=f"**Link :-** `https://telegra.ph{response[0]}`"
+reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(text="Open Link", url=f"https://telegra.ph{response[0]}"),
                 InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://telegra.ph{response[0]}")
             ]
         ]
-    )
-    await message.edit_text(
+)
+await message.edit_text(
         text=text,
         disable_web_page_preview=True,
         reply_markup=reply_markup
-    )
-    return
+)
 @Pk.on_callback_query()
 async def cb_data(bot, update):
     if update.data == 'about':
