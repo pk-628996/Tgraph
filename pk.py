@@ -43,15 +43,12 @@ async def id(pk, message):
 @Pk.on_callback_query()
 async def cb_data(bot, update):
     if update.data == 'about':
-       await bot.send_message(
+       await update.message.edit_text(
            text=ABOUT_TEXT,
-           chat_id=update.chat.id,
            disable_web_page_preview=True
        ),
     elif update.data == 'menu':
-       await bot.send_message(
-          text="menu",
-          chat_id=update.chat.id,
+       await update.message.edit_text(
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
        ),
