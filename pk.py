@@ -19,13 +19,7 @@ async def start(pk, update):
      
     await update.reply_text(
      text=START_TEXT.format(update.from_user.mention),
-     reply_markup=START_BUTTON,InlineKeyboardMarkup(
-         [
-           [ 
-               InlineKeyboardButton('about' , callback_data='about')
-           ]
-         ]
-     )
+     reply_markup=START_BUTTON
     )
 @Pk.on_message(filters.private & filters.command("id"))
 async def id(pk, message):
