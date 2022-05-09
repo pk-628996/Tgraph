@@ -1,1 +1,1 @@
-worker: Python3 pk.py
+worker: python3 pk.py
