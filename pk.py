@@ -29,7 +29,7 @@ async def start(pk, update):
 async def id(pk, message):
  
    await message.reply_text(
-    text='here is your id {}'.format(message.from_user_id)
+    text='here is your id {}'.format(message.chat_id)
    )
 
 
