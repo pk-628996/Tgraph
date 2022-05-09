@@ -63,21 +63,18 @@ async def getmedia(pk, update):
             [[InlineKeyboardButton('More Help', callback_data='help')]]
         )
         await message.edit_text(
-            text="Text",
+            text=text,
             disable_web_page_preview=True,
             reply_markup=reply_markup
         )
         return
 
-    text=f"**Link :-** `https://telegra.ph{response[0]}`\n\n**Join :-** @FayasNoushad"
+    text=f"**Link :-** `https://telegra.ph{response[0]}`"
     reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(text="Open Link", url=f"https://telegra.ph{response[0]}"),
                 InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://telegra.ph{response[0]}")
-            ],
-            [
-                InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/FayasNoushad")
             ]
         ]
     )
