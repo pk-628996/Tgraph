@@ -19,7 +19,7 @@ async def start(pk, update):
      
     await update.reply_text(
      text=START_TEXT.format(update.from_user.mention),
-     reply_markup= InlineKeyboardMarkup(
+     reply_markup=START_BUTTON,InlineKeyboardMarkup(
          [
            [ 
                InlineKeyboardButton('about' , callback_data='about')
