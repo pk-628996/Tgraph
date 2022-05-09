@@ -1,10 +1,11 @@
 services:
-  bot:
+   pk:
     build: .
     environment:
       API_ID: $API_ID  
       API_HASH: $API_HASH  
       BOT_TOKEN: $BOT_TOKEN 
+    command: python3 pk.py
     resources:
       cpu: 1000m
       memory: 3Gi
