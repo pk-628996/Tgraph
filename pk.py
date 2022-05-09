@@ -62,7 +62,7 @@ async def cb_data(bot, update):
         disable_web_page_preview=True
       ),
     elif update.data == 'close':
-       await update.message.edit.text(
+       await update.message.edit_text(
           text="""closed""",
           disable_web_page_preview=True
        ),    
