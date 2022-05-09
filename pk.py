@@ -29,7 +29,7 @@ async def start(pk, update):
 
 @Pk.on_callback_query()
 async def cb_data(bot, update):
-    if update.data == 'about'
+    if update.data == 'about':
        await update.message.edit_text(
            text=START_TEXT.format(update.from_user.mention)
        )
