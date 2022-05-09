@@ -30,7 +30,7 @@ async def id(pk, message):
  
    await message.reply_text(
     text=f""" here is your chat id `{message.from_user.id}`""",
-    parse_mode="markdown"
+    parse_mode="MARKDOWN"
    )
 
 
