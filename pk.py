@@ -40,11 +40,13 @@ async def cb_data(bot, update):
        ),
     elif update.data == 'menu':
        await bot.send_message(
+          text="menu",
+          chat_id=update.chat.id,
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
        ),
     elif update.data == 'close':
-       await bot.send_message(
+       await update.message.reply_text(
           text="""closed""",
           disable_web_page_preview=True
        ),    
