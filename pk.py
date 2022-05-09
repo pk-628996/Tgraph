@@ -10,6 +10,7 @@ Pk = Client(
       api_hash=os.environ.get("API_HASH")
 )
 START_TEXT=""" Hi, This is for testing {} """
+ABOUT_TEXT="""This is about text """
 
 @Pk.on_message(filters.private & filters.command("start"))
 async def start(pk, update):
@@ -24,6 +25,13 @@ async def start(pk, update):
          ]
      )
     )
+@Pk.on_message(filters.private & filters.command("id"))
+async def id(pk, send):
+ 
+   await send.send_message(
+    text="""here is your chat id {chat_id}"""
+   )
+
 
 
 
@@ -31,7 +39,7 @@ async def start(pk, update):
 async def cb_data(bot, update):
     if update.data == 'about':
        await update.message.edit_text(
-           text=START_TEXT.format(update.from_user.mention)
+           text=ABOUT_TEXT
        )
     else:
         await update.message.delete()
