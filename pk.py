@@ -43,8 +43,9 @@ async def id(pk, message):
 @Pk.on_callback_query()
 async def cb_data(bot, update):
     if update.data == 'about':
-       await update.message.edit_text(
+       await bot.send_message(
            text=ABOUT_TEXT,
+           chat_id=update.chat.id,
            disable_web_page_preview=True
        ),
     elif update.data == 'menu':
@@ -55,8 +56,9 @@ async def cb_data(bot, update):
           disable_web_page_preview=True
        ),
     elif update.data == 'close':
-       await update.message.reply_text(
+       await bot.send_message(
           text="""closed""",
+          chat_id=update.chat.id,
           disable_web_page_preview=True
        ),    
     else:
