@@ -29,7 +29,7 @@ async def start(pk, update):
 async def id(pk, send):
  
    await send.reply_text(
-    text=f" 'here is your id {send.chat_id.mention},"
+    text='here is your id tg://user?id={} '
    )
 
 
