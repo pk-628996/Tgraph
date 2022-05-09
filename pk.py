@@ -40,10 +40,8 @@ async def id(pk, message):
     text=f""" here is your chat id ` {message.from_user.id} `"""
    )
 @Pk.on_message(filters.private & filters.media)
-async def getmedia(pk, update):
-  
+async def getmedia(pk, update):  
    medianame = DOWNLOAD_LOCATION + str(update.from_user.id)
- 
    try:
       message = await update.reply_message(
        text="Downloading...",
@@ -82,6 +80,11 @@ async def getmedia(pk, update):
                 InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/FayasNoushad")
             ]
         ]
+    )
+    await message.edit_text(
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
     )
 @Pk.on_callback_query()
 async def cb_data(bot, update):
