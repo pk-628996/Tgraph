@@ -21,6 +21,15 @@ async def start(pk, update):
      text=START_TEXT.format(update.from_user.mention),
      reply_markup=START_BUTTON
     )
+@Pk.on_message(filters.private & filters.command("cmds"))
+async def cmds(pk, cmds):
+   await cmds.reply_text(
+    text= """ Available Commands \n
+          /start -start the bot \n
+          /id - show your chat id \n
+          /cmds - list available commands"""
+   )
+
 @Pk.on_message(filters.private & filters.command("id"))
 async def id(pk, message):
  
