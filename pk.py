@@ -11,6 +11,8 @@ Pk = Client(
       api_id=os.environ.get("API_ID"),
       api_hash=os.environ.get("API_HASH")
 )
+DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")
+
 START_TEXT=""" Hi, This is for testing {} """
 ABOUT_TEXT="""This is about text """
 
@@ -37,9 +39,13 @@ async def id(pk, message):
    await message.reply_text(
     text=f""" here is your chat id ` {message.from_user.id} `"""
    )
-
-
-
+@Pk.on_message(filters.private & filters.media)
+async def getmedia(pk, update):
+  
+   medianame = DOWNLOAD_LOCATION + str(update.from_user.id)
+ 
+   try:
+      message = await update.reply_message(
 
 @Pk.on_callback_query()
 async def cb_data(bot, update):
