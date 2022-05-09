@@ -14,6 +14,7 @@ Pk = Client(
 START_TEXT=""" Hi, This is for testing {} """
 ABOUT_TEXT="""This is about text """
 
+
 @Pk.on_message(filters.private & filters.command("start"))
 async def start(pk, update):
      
@@ -45,6 +46,7 @@ async def cb_data(bot, update):
     if update.data == 'about':
        await update.message.edit_text(
            text=ABOUT_TEXT,
+           reply_markup=MENU_BUTTON,
            disable_web_page_preview=True
        ),
     elif update.data == 'menu':
@@ -53,10 +55,15 @@ async def cb_data(bot, update):
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
        ),
+    elif update.data == 'help'
+      await update.message.edit_text(
+        text="This is help text",
+        reply_markup=MENU_BUTTON,
+        disable_web_page_preview=True
+      ),
     elif update.data == 'close':
-       await bot.send_message(
+       await update.message.edit.text(
           text="""closed""",
-          chat_id=update.chat.id,
           disable_web_page_preview=True
        ),    
     else:
