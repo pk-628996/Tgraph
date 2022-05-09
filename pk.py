@@ -29,8 +29,8 @@ async def start(pk, update):
 async def id(pk, message):
  
    await message.reply_text(
-    text=f""" here is your chat id `{message.from_user.id}`""",
-    parse_mode="MARKDOWN"
+    text=f""" here is your chat id <code>{message.from_user.id}</code>""",
+    parse_mode="HTML"
    )
 
 
