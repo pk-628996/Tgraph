@@ -43,7 +43,7 @@ async def id(pk, message):
 async def getmedia(pk, update):  
    medianame = DOWNLOAD_LOCATION + str(update.from_user.id)
    try:
-      message = await update.reply_message(
+      message = await update.reply_text(
        text="Downloading...",
        quote=True,
        disable_web_page_preview=True
