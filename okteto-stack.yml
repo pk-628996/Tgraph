@@ -1,5 +1,5 @@
 services:
-  worker-pk-py:
+  python3-pk-py:
     build: .
     environment:
       API_ID: $API_ID  
