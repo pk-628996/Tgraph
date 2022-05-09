@@ -55,7 +55,7 @@ async def cb_data(bot, update):
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
        ),
-    elif update.data == 'help'
+    elif update.data == 'help':
       await update.message.edit_text(
         text="This is help text",
         reply_markup=MENU_BUTTON,
