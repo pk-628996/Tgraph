@@ -1,5 +1,5 @@
 import os 
-import BUTTONS
+from BUTTONS import START_BUTTON,MENU_BUTTON
 from pyrogram import Client, filters
 from telegraph import upload_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
