@@ -26,10 +26,10 @@ async def start(pk, update):
      )
     )
 @Pk.on_message(filters.private & filters.command("id"))
-async def id(pk, send):
+async def id(pk, message):
  
-   await send.reply_text(
-    text='here is your id'.format(send.from_user_id)
+   await message.reply_text(
+    text='here is your id {}'.format(message.from_user_id)
    )
 
 
