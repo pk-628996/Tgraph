@@ -42,16 +42,8 @@ async def id(pk, message):
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
    medianame = DOWNLOAD_LOCATION + str(message.from_user.id) + ".jpg"
+   medianame = await client.download_media(message="Downloading...", file_name = medianame)
    try:
-      await message.reply_text(
-         text="Downloading...",
-         quote=True,
-         disable_web_page_preview=True
-      )
-      await client.download_media(
-          message="Downloaded successfully ", 
-          file_name=medianame 
-      )
       await message.edit_text("Trying to Upload on Telegraph")
       try:
          tlink = upload_file(medianame)
