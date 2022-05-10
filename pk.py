@@ -42,8 +42,7 @@ async def id(pk, message):
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
   medianame = DOWNLOAD_LOCATION + str(message.chat.id) + ".jpg"
-  try:
-      message = await message.reply_text(
+      await message.reply_text(
          text="Downloading...",
          quote=True,
          disable_web_page_preview=True
