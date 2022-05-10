@@ -54,7 +54,7 @@ async def uploadphoto(client, message):
       )
       await message.edit_text("Trying to Upload on Telegraph")
       try:
-         tlink = upload_file(medianame)
+         tlink = upload_file(file_name)
       except:
          await message.edit_text("Something went wrong") 
    except:
