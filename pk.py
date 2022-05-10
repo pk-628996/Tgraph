@@ -79,15 +79,8 @@ async def getmedia(pk, update):
         )
         
         await message.edit_text(
-        text=f"**Link :-** `https://telegra.ph{response[0]}`",
-        reply_markup=InlineKeyboardMarkup(
-            [
-               [
-                   InlineKeyboardButton(text="Open Link", url=f"https://telegra.ph{response[0]}"),
-                   InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://telegra.ph{response[0]}")
-               ]
-           ]
-        ),
+        text=text,
+        reply_markup=reply_markup,
         disable_web_page_preview=True
         )
 @Pk.on_callback_query()
