@@ -49,7 +49,7 @@ async def uploadphoto(client, message):
        await message.edit_text(f"https://telegra.ph{tlink[0]}")
        os.remove(medianame)
    except:
-       await message.edit_text("Something went wrong") 7
+       await message.edit_text("Something went wrong") 
 
 @Pk.on_message(filters.animation)
 async def uploadgif(client, message):
