@@ -41,8 +41,8 @@ async def id(pk, message):
    )
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
-      medianame = DOWNLOAD_LOCATION + str(message.chat.id) + ".jpg"
-  if(message.photo.file_size < 5242880):
+   medianame = DOWNLOAD_LOCATION + str(message.chat.id) + ".jpg"
+   try:
       await message.reply_text(
          text="Downloading...",
          quote=True,
@@ -53,10 +53,10 @@ async def uploadphoto(client, message):
           file_name=medianame
       )
       await message.edit_text("Trying to Upload on Telegraph")
-  try:
-    tlink = upload_file(medianame)
-  except:
-    await message.edit_text("Something went wrong") 
+      try:
+         tlink = upload_file(medianame)
+      except:
+         await message.edit_text("Something went wrong") 
   else:
     await message.edit_text(f"https://telegra.ph{tlink[0]}")     
     os.remove(medianame) 
