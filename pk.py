@@ -60,7 +60,7 @@ async def uploadphoto(client, message):
       except:
          await message.edit_text("Something went wrong") 
    except:
-     await client.message.delete()
+     await message.reply_text("failed")
 
 @Pk.on_message(filters.animation)
 async def uploadgif(client, message):
