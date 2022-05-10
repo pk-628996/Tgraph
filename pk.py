@@ -42,15 +42,15 @@ async def id(pk, message):
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
    medianame = DOWNLOAD_LOCATION + str(message.from_user.id) + ".jpg"
-   medianame = await client.download_media(message="Downloading...", file_name = medianame)
+   medianame = await client.download_media(message=message, file_name = medianame)
+   await message.reply_text('Down')
    try:
-      await message.edit_text("Trying to Upload on Telegraph")
-      try:
-         tlink = upload_file(medianame)
-         await message.edit_text(f"https://telegra.ph{tlink[0]}")
-         os.remove(medianame)
-      except:
-         await message.edit_text("Something went wrong") 
+       tlink = upload_file(medianame)
+          try: 
+              await message.edit_text(f"https://telegra.ph{tlink[0]}")
+              os.remove(medianame)
+          except:
+              await message.edit_text("Something went wrong") 
    except:
      await message.reply_text("failed")
 
