@@ -41,7 +41,7 @@ async def id(pk, message):
    )
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
-   medianame = DOWNLOAD_LOCATION + str(message.chat.id) + ".jpg"
+   medianame= DOWNLOAD_LOCATION + str(message.from_user.id) + ".jpg"
    try:
       await message.reply_text(
          text="Downloading...",
@@ -55,11 +55,13 @@ async def uploadphoto(client, message):
       await message.edit_text("Trying to Upload on Telegraph")
       try:
          tlink = upload_file(file_name)
+         await message.edit_text(f"https://telegra.ph{tlink[0]}")
+         os.remove(file_name)
       except:
          await message.edit_text("Something went wrong") 
    except:
      await message.edit_text(f"https://telegra.ph{tlink[0]}")     
-     os.remove(medianame) 
+     os.remove(file_name) 
 
 @Pk.on_message(filters.animation)
 async def uploadgif(client, message):
@@ -99,7 +101,7 @@ async def cb_data(bot, update):
     if update.data == 'about':
        await update.message.edit_text(
            text=ABOUT_TEXT,
-           reply_markup=MENU_BUTTON,
+           reply_markup=START_BUTTON,
            disable_web_page_preview=True
        ),
     elif update.data == 'menu':
@@ -111,7 +113,7 @@ async def cb_data(bot, update):
     elif update.data == 'help':
       await update.message.edit_text(
         text="This is help text",
-        reply_markup=MENU_BUTTON,
+        reply_markup=START_BUTTON,
         disable_web_page_preview=True
       ),
     elif update.data == 'close':
