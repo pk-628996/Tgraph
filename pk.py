@@ -41,7 +41,7 @@ async def id(pk, message):
    )
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
-   medianame = DOWNLOAD_LOCATION + str(message.from_user.id) + ".jpg"
+   medianame = DOWNLOAD_LOCATION + str({message.from_user.id}) + ".jpg"
    medianame = await client.download_media(
                   message="message", 
                   file_name = medianame)
