@@ -11,7 +11,6 @@ Pk = Client(
       api_id=os.environ.get("API_ID"),
       api_hash=os.environ.get("API_HASH")
 )
-DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/")
 
 START_TEXT=""" Hi, This is for testing {} """
 ABOUT_TEXT="""This is about text """
@@ -41,7 +40,8 @@ async def id(pk, message):
    )
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
-   medianame = DOWNLOAD_LOCATION + str({message.from_user.id}) + ".jpg"
+   userid = str(message.chat.id)
+   medianame= (f"./DOWNLOADS/{userid}.jpg")
    medianame = await client.download_media(
                   message="message", 
                   file_name = medianame)
