@@ -1,5 +1,6 @@
 import os 
 from BUTTONS import START_BUTTON, MENU_BUTTON
+from Text import START_TEXT, HELP_TEXT
 from pyrogram import Client, filters
 from telegraph import Telegraph , upload_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -12,7 +13,6 @@ Pk = Client(
       api_hash=os.environ.get("API_HASH")
 )
 
-START_TEXT=""" Hi, This is for testing {} """
 ABOUT_TEXT="""This is about text """
 
 
