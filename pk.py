@@ -1,7 +1,7 @@
 import os 
 from BUTTONS import START_BUTTON, MENU_BUTTON
 from pyrogram import Client, filters
-import telegraph as Telegraph
+from telegraph import Telegraph , upload_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
