@@ -46,7 +46,7 @@ async def uploadp(pk, message):
                 message=message, file_name=file_name)
   await message.reply_text("""down""")
   try:
-     tlink = Telegraph.upload_file(file_name)
+     tlink = Telegraph.upload_file(f'file_name')
      await message.edit_text(f"https://telegra.ph{tlink[0]}")
      os.remove(file_name)
   except:
