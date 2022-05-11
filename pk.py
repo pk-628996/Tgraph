@@ -38,6 +38,7 @@ async def id(pk, message):
    await message.reply_text(
     text=f""" here is your chat id ` {message.from_user.id} `"""
    )
+"""
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
    userid = str(message.chat.id)
@@ -85,7 +86,7 @@ async def uploadvid(client, message):
     except:
       await message.edit_text("Something really Happend Wrong...") 
   else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
+    await message.reply_text("Size Should Be Less Than 5 mb")"""
 @Pk.on_callback_query()
 async def cb_data(bot, update):
     if update.data == 'about':
