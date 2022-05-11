@@ -1,7 +1,7 @@
 import os 
 from BUTTONS import START_BUTTON, MENU_BUTTON
 from pyrogram import Client, filters
-from Telegraph import upload_file
+import telegraph as Telegraph
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
@@ -47,7 +47,7 @@ async def uploadphoto(client, message):
                   file_name = medianame)
    await message.reply_text('Down')
    try:
-       tlink = upload_file(medianame)
+       tlink = Telegraph.upload_file(medianame)
        await message.edit_text(f"https://telegra.ph{tlink[0]}")
        os.remove(medianame)
    except:
