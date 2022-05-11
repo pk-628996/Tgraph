@@ -47,10 +47,10 @@ async def uploadp(pk, message):
   await message.reply_text("""down""")
   try:
      tlink = Telegraph.upload_file(f'file_name')
-     await message.edit_text(f"https://telegra.ph{tlink[0]}")
+     await message.reply_text(f"https://telegra.ph{tlink[0]}")
      os.remove(file_name)
   except:
-     await message.edit_text("""Something went wrong""")
+     await message.reply_text("""Something went wrong""")
 """
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
