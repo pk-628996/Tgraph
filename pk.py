@@ -43,7 +43,7 @@ async def uploadp(pk, message):
   userid = str(message.from_user.id)
   file_name = (f"./DOWNLOADS/{userid}.jpg")
   file_name = await pk.download_media(
-                message="m", file_name=file_name)
+                message=message, file_name=file_name)
   await message.reply_text("""down""")
   try:
      tlink = Telegraph.upload_file(file_name)
