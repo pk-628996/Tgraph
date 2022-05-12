@@ -49,6 +49,8 @@ async def uploadp(pk, message):
      tlink = Telegraph.upload_file(file_name)[0]
      await message.reply_text(f"https://telegra.ph{tlink}")
      os.remove(file_name)
+
+
 """
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
