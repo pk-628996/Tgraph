@@ -74,30 +74,30 @@ async def uploadp(pk, message):
 #    gif_path = await client.download_media(message=message, file_name=gif_path)
 #    await message.edit_text("Trying to Upload...")
 #    try:
-"""      tlink = upload_file(gif_path)
-      await message.edit_text(f"https://telegra.ph{tlink[0]}")   
-      os.remove(gif_path)   
-    except:
-      await message.edit_text("Something really Happend Wrong...") 
-  else:
-    await message.reply_text("Size Should Be Less Than 5 mb")"""
-
-"""@Pk.on_message(filters.video)
-async def uploadvid(client, message):
-  if(message.video.file_size < 5242880):
-    message = await message.reply_text("Trying to Download...")
-    userid = str(message.chat.id)
-    vid_path = (f"./DOWNLOADS/{userid}.mp4")
-    vid_path = await client.download_media(message=message, file_name=vid_path)
-    await message.edit_text("`Trying to Upload...")
-    try:
-      tlink = upload_file(vid_path)
-      await message.edit_text(f"https://telegra.ph{tlink[0]}")     
-      os.remove(vid_path)   
-    except:
-      await message.edit_text("Something really Happend Wrong...") 
-  else:
-    await message.reply_text("Size Should Be Less Than 5 mb")"""
+#      tlink = upload_file(gif_path)
+#      await message.edit_text(f"https://telegra.ph{tlink[0]}")   
+#      os.remove(gif_path)   
+#    except:
+#      await message.edit_text("Something really Happend Wrong...") 
+# else:
+#    await message.reply_text("Size Should Be Less Than 5 mb")"""
+#
+#@Pk.on_message(filters.video)
+#async def uploadvid(client, message):
+#  if(message.video.file_size < 5242880):
+#    message = await message.reply_text("Trying to Download...")
+#    userid = str(message.chat.id)
+#    vid_path = (f"./DOWNLOADS/{userid}.mp4")
+#    vid_path = await client.download_media(message=message, file_name=vid_path)
+#   await message.edit_text("`Trying to Upload...")
+#    try:
+#      tlink = upload_file(vid_path)
+#      await message.edit_text(f"https://telegra.ph{tlink[0]}")     
+#      os.remove(vid_path)   
+#    except:
+#      await message.edit_text("Something really Happend Wrong...") 
+#  else:
+#    await message.reply_text("Size Should Be Less Than 5 mb")"""
 @Pk.on_callback_query()
 async def cb_data(bot, update):
     if update.data == 'about':
