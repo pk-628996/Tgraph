@@ -2,7 +2,7 @@ import os
 from BUTTONS import START_BUTTON, MENU_BUTTON
 from Text import START_TEXT, HELP_TEXT
 from pyrogram import Client, filters
-from telegraph import upload_file
+from telegraph import upload_file, Telegraph
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
@@ -46,7 +46,7 @@ async def uploadp(pk, message):
                 message=message, file_name=file_name)
   await message.reply_text("""down""")
   try:
-     tlink = telegraph.upload_file(file_name)[0]
+     tlink = Telegraph.upload_file(file_name)[0]
      await message.reply_text(f"https://telegra.ph{tlink}")
      os.remove(file_name)
   except:
