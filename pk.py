@@ -100,35 +100,6 @@ async def uploadp(pk, message):
 #    await message.reply_text("Size Should Be Less Than 5 mb")
 
 
-@Pk.on_callback_query()
- async def cb_data(bot, update):
-    if update.data == 'about':
-       await update.message.edit_text(
-           text=ABOUT_TEXT,
-           reply_markup=START_BUTTON,
-           disable_web_page_preview=True
-       ),
-    elif update.data == 'menu':
-       await update.message.edit_text(
-          text="menu",
-          reply_markup=MENU_BUTTON,
-          disable_web_page_preview=True
-       ),
-    elif update.data == 'help':
-      await update.message.edit_text(
-        text="This is help text",
-        reply_markup=START_BUTTON,
-        disable_web_page_preview=True
-      ),
-    elif update.data == 'close':
-       await update.message.edit_text(
-          text="""closed""",
-          disable_web_page_preview=True
-       ),    
-    else:
-        await update.message.delete()
-
-Pk.run()
 
          
 
