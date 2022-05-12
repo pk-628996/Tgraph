@@ -97,9 +97,9 @@ async def uploadp(pk, message):
 #    except:
 #      await message.edit_text("Something really Happend Wrong...") 
 #  else:
-#    await message.reply_text("Size Should Be Less Than 5 mb")"""
+#    await message.reply_text("Size Should Be Less Than 5 mb")
 @Pk.on_callback_query()
-async def cb_data(bot, update):
+ async def cb_data(bot, update):
     if update.data == 'about':
        await update.message.edit_text(
            text=ABOUT_TEXT,
