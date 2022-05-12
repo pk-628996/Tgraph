@@ -49,6 +49,7 @@ async def uploadp(pk, message):
      tlink = Telegraph.upload_file(file_name)[0]
      await message.reply_text(f"https://telegra.ph{tlink}")
      os.remove(file_name)
+"""
 @Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
    userid = str(message.chat.id)
@@ -96,7 +97,7 @@ async def uploadvid(client, message):
     except:
       await message.edit_text("Something really Happend Wrong...") 
   else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
+    await message.reply_text("Size Should Be Less Than 5 mb")"""
 @Pk.on_callback_query()
 async def cb_data(bot, update):
     if update.data == 'about':
