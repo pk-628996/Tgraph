@@ -51,8 +51,7 @@ async def uploadp(pk, message):
      os.remove(file_name)
 
 
-"""
-@Pk.on_message(filters.photo)
+"""@Pk.on_message(filters.photo)
 async def uploadphoto(client, message):
    userid = str(message.chat.id)
    medianame= (f"./DOWNLOADS/{userid}.jpg")
