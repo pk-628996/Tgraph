@@ -49,40 +49,40 @@ async def uploadp(pk, message):
      tlink = Telegraph.upload_file(file_name)[0]
      await message.reply_text(f"https://telegra.ph{tlink}")
      os.remove(file_name)
-"""
-@Pk.on_message(filters.photo)
-async def uploadphoto(client, message):
-   userid = str(message.chat.id)
-   medianame= (f"./DOWNLOADS/{userid}.jpg")
-   medianame = await client.download_media(
-                  message="message", 
-                  file_name = medianame)
-   await message.reply_text('Down')
-   try:
-       tlink = Telegraph.upload_file(medianame)
-       await message.edit_text(f"https://telegra.ph{tlink[0]}")
-       os.remove(medianame)
-   except:
-       await message.edit_text("Something went wrong") 
 
-@Pk.on_message(filters.animation)
-async def uploadgif(client, message):
-  if(message.animation.file_size < 5242880):
-    message = await message.reply_text("Trying to Download")
-    userid = str(message.chat.id)
-    gif_path = (f"./DOWNLOADS/{userid}.mp4")
-    gif_path = await client.download_media(message=message, file_name=gif_path)
-    await message.edit_text("Trying to Upload...")
-    try:
-      tlink = upload_file(gif_path)
+# @Pk.on_message(filters.photo)
+# async def uploadphoto(client, message):
+#   userid = str(message.chat.id)
+#  medianame= (f"./DOWNLOADS/{userid}.jpg")
+#  medianame = await client.download_media(
+#                 message="message", 
+#                 file_name = medianame)
+#  await message.reply_text('Down')
+#   try:
+#       tlink = Telegraph.upload_file(medianame)
+#       await message.edit_text(f"https://telegra.ph{tlink[0]}")
+#      os.remove(medianame)
+#   except:
+#      await message.edit_text("Something went wrong") 
+#
+#@Pk.on_message(filters.animation)
+#async def uploadgif(client, message):
+#  if(message.animation.file_size < 5242880):
+#    message = await message.reply_text("Trying to Download")
+#    userid = str(message.chat.id)
+#   gif_path = (f"./DOWNLOADS/{userid}.mp4")
+#    gif_path = await client.download_media(message=message, file_name=gif_path)
+#    await message.edit_text("Trying to Upload...")
+#    try:
+"""      tlink = upload_file(gif_path)
       await message.edit_text(f"https://telegra.ph{tlink[0]}")   
       os.remove(gif_path)   
     except:
       await message.edit_text("Something really Happend Wrong...") 
   else:
-    await message.reply_text("Size Should Be Less Than 5 mb")
+    await message.reply_text("Size Should Be Less Than 5 mb")"""
 
-@Pk.on_message(filters.video)
+"""@Pk.on_message(filters.video)
 async def uploadvid(client, message):
   if(message.video.file_size < 5242880):
     message = await message.reply_text("Trying to Download...")
