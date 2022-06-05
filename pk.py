@@ -36,19 +36,19 @@ async def cmds(pk, cmds):
 async def id(pk, message):
  
    await message.reply_text(
-    text=f""" here is your chat id ` {message.from_user.id} `"""
+    text=f""" here is your chat id `{message.from_user.id}`"""
    )
 @Pk.on_message(filters.photo)
 async def uploadp(pk, message):
   userid = str(message.from_user.id)
-  file_name = (f"./DOWNLOADS/{userid}.jpg")
-  file_name = await pk.download_media(
-                message=message, file_name=file_name)
-  await message.reply_text("""down""")
+  file_name = await message.download()
   try:
      tlink = Telegraph.upload_file(file_name)[0]
      await message.reply_text(f"https://telegra.ph{tlink}")
      os.remove(file_name)
+  except Exceptions as e:
+     print(e)
+     await message.reply(e, quote=True)
 
 # @Pk.on_message(filters.photo)
 # async def uploadphoto(client, message):
