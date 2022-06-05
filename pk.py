@@ -61,12 +61,12 @@ async def uploadpk(pk, message):
  if(message.document.file_size < 5242880):
   userid = str(message.from_user.id)
  
-  file = await message.download()
+  filep = await message.download()
   await message.reply(text="Downloaded Successfully✅", quote=True)
   try:
-     tlink = upload_file(file)[0]
+     tlink = upload_file(filep)[0]
      await message.reply_text(f"https://telegra.ph{tlink}")
-     os.remove(file)
+     os.remove(filep)
   except Exception as e:
      print(e)
      await message.reply(e, quote=True)
