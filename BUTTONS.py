@@ -17,7 +17,6 @@ MENU_BUTTON = InlineKeyboardMarkup(
          InlineKeyboardButton('Help⁉️', callback_data='help')
       ],
       [
-         InlineKeyboardButton('<---', callback_data='menu'),
          InlineKeyboardButton('close❌', callback_data='close')
       ]
     ]
