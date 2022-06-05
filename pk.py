@@ -16,14 +16,14 @@ Pk = Client(
 ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
 
 
-@Pk.on_message(filters.private & filters.command("start"))
+@Pk.on_message(filters.command("start"))
 async def start(pk, update):
      
     await update.reply_text(
      text=START_TEXT.format(update.from_user.mention),
      reply_markup=START_BUTTON
     )
-@Pk.on_message(filters.private & filters.command("cmds"))
+@Pk.on_message(filters.command("cmds"))
 async def cmds(pk, cmds):
    await cmds.reply_text(
     text= """ Available Commands \n
@@ -32,7 +32,7 @@ async def cmds(pk, cmds):
           /cmds - list available commands"""
    )
 
-@Pk.on_message(filters.private & filters.command("id"))
+@Pk.on_message(filters.command("id"))
 async def id(pk, message):
  
    await message.reply_text(
@@ -46,7 +46,7 @@ async def uploadp(pk, message):
   await message.reply(text="Downloaded Successfully✅", quote=True)
   try:
      tlink = upload_file(file)[0]
-     await message.reply(text=f"https://telegra.ph{tlink} \n `https://telegra.ph{tlink}` Tap the link to copy ", disable_web_page_preview=True )
+     await message.reply(text=f"https://telegra.ph{tlink} \n\n `https://telegra.ph{tlink}` \n\n Tap the link to copy ", disable_web_page_preview=True )
      os.remove(file)
   except Exception as e:
      print(e)
@@ -123,7 +123,7 @@ async def cb_data(bot, update):
       ),
     elif update.data == 'close':
        await update.message.edit_text(
-          text="""closed""",
+          text="""Closed""",
           disable_web_page_preview=True
        ),    
     else:
