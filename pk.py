@@ -52,21 +52,6 @@ async def uploadp(pk, message):
      print(e)
      await message.reply(e, quote=True)
 
-
-@Pk.on_message(filters.document)
-async def uploadpk(pk, message):
-  userid = str(message.from_user.id)
- 
-  filep = await message.download()
-  await message.reply(text="Downloaded Successfully✅", quote=True)
-  try:
-     tlink = upload_file(filep)[0]
-     await message.reply_text(f"https://telegra.ph{tlink}")
-     os.remove(filep)
-  except Exception as e:
-     print(e)
-     await message.reply(e, quote=True)
-
 # @Pk.on_message(filters.photo)
 # async def uploadphoto(client, message):
 #   userid = str(message.chat.id)
