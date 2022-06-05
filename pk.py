@@ -16,13 +16,14 @@ Pk = Client(
 ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
 
 
-@Pk.on_message(filters.command("start"))
+@Pk.on_message(filters.private & filters.command("start"))
 async def start(pk, update):
      
     await update.reply_text(
      text=START_TEXT.format(update.from_user.mention),
      reply_markup=START_BUTTON
     )
+
 @Pk.on_message(filters.command("cmds"))
 async def cmds(pk, cmds):
    await cmds.reply_text(
@@ -32,15 +33,18 @@ async def cmds(pk, cmds):
           /cmds - list available commands"""
    )
 
-@Pk.on_message(filters.command("id"))
+@Pk.on_message(filters.private & filters.command("id"))
 async def id(pk, message):
  
    await message.reply_text(
     text=f""" here is your chat id `{message.from_user.id}` \n tap to copy """
    )
+
+@Pk.on_message(filters.command("help"))
+await Pk.reply(text="Don't use commands /start or  /id in group ")
+
 @Pk.on_message(filters.media)
 async def uploadp(pk, message):
-  userid = str(message.from_user.id)
   await message.reply(text="Downloading⚡...")
   file = await message.download()
   await message.reply(text="Downloaded Successfully✅", quote=True)
