@@ -6,4 +6,5 @@
 start-start the bot
 id-Your chat id
 cmds-See avalable commands
+help-see help 
 ```
