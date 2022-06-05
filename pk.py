@@ -13,7 +13,7 @@ Pk = Client(
       api_hash=os.environ.get("API_HASH")
 )
 
-ABOUT_TEXT="""This is about text """
+ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
 
 
 @Pk.on_message(filters.private & filters.command("start"))
@@ -36,17 +36,17 @@ async def cmds(pk, cmds):
 async def id(pk, message):
  
    await message.reply_text(
-    text=f""" here is your chat id `{message.from_user.id}`"""
+    text=f""" here is your chat id `{message.from_user.id}` \n tap to copy """
    )
 @Pk.on_message(filters.media)
 async def uploadp(pk, message):
   userid = str(message.from_user.id)
- 
+  await message.reply(text="Downloading⚡...")
   file = await message.download()
   await message.reply(text="Downloaded Successfully✅", quote=True)
   try:
      tlink = upload_file(file)[0]
-     await message.reply_text(f"https://telegra.ph{tlink}")
+     await message.reply(text=f"https://telegra.ph{tlink} \n `https://telegra.ph{tlink}` Tap the link to copy ", disable_web_page_preview=True )
      os.remove(file)
   except Exception as e:
      print(e)
