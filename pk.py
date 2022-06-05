@@ -38,7 +38,7 @@ async def id(pk, message):
    await message.reply_text(
     text=f""" here is your chat id `{message.from_user.id}`"""
    )
-@Pk.on_message(filters.photo)
+@Pk.on_message(filters.media)
 async def uploadp(pk, message):
   userid = str(message.from_user.id)
  
