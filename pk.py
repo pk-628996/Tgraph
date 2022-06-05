@@ -47,7 +47,7 @@ async def uploadp(pk, message):
   try:
      tlink = upload_file(file)[0]
      await message.reply_text(f"https://telegra.ph{tlink}")
-     os.remove(file_name)
+     os.remove(file)
   except Exception as e:
      print(e)
      await message.reply(e, quote=True)
