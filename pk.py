@@ -40,6 +40,7 @@ async def id(pk, message):
    )
 @Pk.on_message(filters.media)
 async def uploadp(pk, message):
+ if(message.media.file_size < 5242880):
   userid = str(message.from_user.id)
  
   file = await message.download()
@@ -51,6 +52,26 @@ async def uploadp(pk, message):
   except Exception as e:
      print(e)
      await message.reply(e, quote=True)
+ else:
+   await message.reply_text("Size Should Be Less Than 5 mb")
+
+
+@Pk.on_message(filters.document)
+async def uploadpk(pk, message):
+ if(message.document.file_size < 5242880):
+  userid = str(message.from_user.id)
+ 
+  file = await message.download()
+  await message.reply(text="Downloaded Successfully✅", quote=True)
+  try:
+     tlink = upload_file(file)[0]
+     await message.reply_text(f"https://telegra.ph{tlink}")
+     os.remove(file)
+  except Exception as e:
+     print(e)
+     await message.reply(e, quote=True)
+ else:
+   await message.reply_text("Size Should Be Less Than 5 mb")
 
 # @Pk.on_message(filters.photo)
 # async def uploadphoto(client, message):
