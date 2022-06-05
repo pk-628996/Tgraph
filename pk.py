@@ -42,7 +42,7 @@ async def id(pk, message):
 async def uploadp(pk, message):
   userid = str(message.from_user.id)
  
-  file_name = await message.download()
+  file = await message.download()
   await message.reply(text="Downloaded Successfully✅", quote=True)
   try:
      tlink = upload_file(file)[0]
