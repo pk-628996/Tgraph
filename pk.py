@@ -41,9 +41,11 @@ async def id(pk, message):
 @Pk.on_message(filters.photo)
 async def uploadp(pk, message):
   userid = str(message.from_user.id)
+ 
   file_name = await message.download()
+  await message.reply(text="Downloaded Successfully✅", quote=True)
   try:
-     tlink = Telegraph.upload_file(file_name)[0]
+     tlink = Telegraph.upload_file(f"{file_name}")[0]
      await message.reply_text(f"https://telegra.ph{tlink}")
      os.remove(file_name)
   except Exceptions as e:
