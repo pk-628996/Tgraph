@@ -39,7 +39,7 @@ async def id(pk, message):
    await message.reply_text(
     text=f""" here is your chat id `{message.from_user.id}` \n tap to copy """
    )
-@Pk.on_message(filters.group & commands="id")
+@Pk.on_message(filters.group & filters.command("id"))
 async def cmd_id_groups(message: types.Message):
     """
     /id command handler for (super)groups
@@ -52,7 +52,7 @@ async def cmd_id_groups(message: types.Message):
         msg.append(f"And you've sent this message as channel with ID {html.code(message.sender_chat.id)}")
     await message.reply("\n".join(msg))
 
-@Pk.on_message(filters.supergroup & commands="id")
+@Pk.on_message(filters.supergroup & filters.command("id"))
 async def cmd_id_groups(message: types.Message):
     """
     /id command handler for (super)groups
