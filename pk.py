@@ -138,13 +138,13 @@ async def cb_data(bot, update):
            text=ABOUT_TEXT,
            reply_markup=START_BUTTON,
            disable_web_page_preview=True
-       ),
+       )
     elif update.data == 'menu':
        await update.message.edit_text(
           text="Menu",
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
-       ),
+       )
     elif update.data == 'uppl':
       r_message = update.message.reply_to_message
       file = await update.download()
@@ -154,18 +154,18 @@ async def cb_data(bot, update):
       await answer_update(update, 
                f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy " , 
                disable_web_page_preview=True
-      ),            
+      )           
     elif update.data == 'help':
       await update.message.edit_text(
         text=HELP_TEXT,
         reply_markup=START_BUTTON,
         disable_web_page_preview=True
-      ),
+      )
     elif update.data == 'close':
        await update.message.edit_text(
           text="""Closed✅""",
           disable_web_page_preview=True
-       ),    
+       )  
     else:
         await update.message.delete()
 
