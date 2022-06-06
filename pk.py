@@ -133,19 +133,19 @@ async def upl(pk, message):
 
 @Pk.on_callback_query()
 async def cb_data(bot, update):
-    if update.data == 'about':
+ if update.data == 'about':
        await update.message.edit_text(
            text=ABOUT_TEXT,
            reply_markup=START_BUTTON,
            disable_web_page_preview=True
        )
-    elif update.data == 'menu':
+ elif update.data == 'menu':
        await update.message.edit_text(
           text="Menu",
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
        )
-    elif update.data == 'uppl':
+ elif update.data == 'uppl':
       r_message = update.message.reply_to_message
       file = await update.download()
          try:
@@ -155,18 +155,18 @@ async def cb_data(bot, update):
                f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy " , 
                disable_web_page_preview=True
       )           
-    elif update.data == 'help':
+ elif update.data == 'help':
       await update.message.edit_text(
         text=HELP_TEXT,
         reply_markup=START_BUTTON,
         disable_web_page_preview=True
       )
-    elif update.data == 'close':
+ elif update.data == 'close':
        await update.message.edit_text(
           text="""Closed✅""",
           disable_web_page_preview=True
        )  
-    else:
+ else:
         await update.message.delete()
 
 Pk.run()
