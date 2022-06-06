@@ -146,10 +146,10 @@ async def cb_data(bot, update):
           disable_web_page_preview=True
        )
  elif update.data == 'uppl':
-      @Pk.on_message()
+      @Pk.on_message(filters.media)
       
       async def up(pk, message):
-           r_message = update.message.reply_to_message
+           r_message = message.reply_to_message
            await message.reply(text="Downloading")
            file = await message.download(r_message)
            try:
