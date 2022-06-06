@@ -147,8 +147,9 @@ async def cb_data(bot, update):
        )
  elif update.data == 'uppl':
       @Pk.on_message()
-      r_message = update.message.reply_to_message
+      
       async def up(pk, message):
+           r_message = update.message.reply_to_message
            await message.reply(text="Downloading")
            file = await message.download(r_message)
            try:
