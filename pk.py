@@ -52,7 +52,7 @@ async def cmd_id_groups(pk, message):
         msg.append(f"And you've sent this message as channel with ID {html.code(message.sender_chat.id)}")
     await message.reply("\n".join(msg))
 
-@Pk.on_message(filters.supergroup & filters.command("id"))
+@Pk.on_message(filters.channel & filters.command("id"))
 async def cmd_id_chann(pk, message):
     """
     /id command handler for (super)groups
