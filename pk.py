@@ -4,7 +4,6 @@ from Text import START_TEXT, HELP_TEXT
 from pyrogram import Client, filters
 from telegraph import upload_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from pyrogram.types.messages_and_media import progress 
 
 
 Pk = Client(
@@ -66,11 +65,11 @@ async def he(pk, message):
 @Pk.on_message(filters.media)
 async def uploadp(pk, message):
   await message.reply(text="Downloading⚡...")
-  file = await message.download(progress=progress)
-  await message.reply(text="Downloaded Successfully✅", quote=True)
+  file = await message.download()
+  await message.edit_text(text="Downloaded Successfully✅", quote=True)
   try:
      tlink = upload_file(file)[0]
-     await message.reply(text=f"https://telegra.ph{tlink} \n\n `https://telegra.ph{tlink}` \n\n Tap the link to copy ", disable_web_page_preview=True )
+     await message.edit_text(text=f"https://telegra.ph{tlink} \n\n `https://telegra.ph{tlink}` \n\n Tap the link to copy ", disable_web_page_preview=True )
      os.remove(file)
   except Exception as e:
      print(e)
