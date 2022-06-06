@@ -81,11 +81,11 @@ async def upl(pk, message):
    await message.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
    file = await message.download(file)
    await message.reply(text="Downloaded Successfully✅")
-    try:
+   try:
       tlink = upload_file(file)[0]
       await message.reply(text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}`\n\nTap the link to copy " , disable_web_page_preview=True)
       os.remove(file)
-    except Exception as e:
+   except Exception as e:
       print(e)
       await message.reply(e, quote=True)
 
