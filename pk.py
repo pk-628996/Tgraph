@@ -74,9 +74,6 @@ async def uploadp(pk, message):
   except Exception as e:
      print(e)
      await message.reply(e, quote=True)
-@Bot.on_message(filters.photo)
-async def upl(pk, message):
-   await message.reply(text="What I need to do?", reply_markup=InlineKeybordMarkup( [ [ InlineKeyboardButton('Upload',callback_data='uppl') ] ] )
 
 # @Pk.on_message(filters.photo)
 # async def uploadphoto(client, message):
@@ -141,18 +138,7 @@ async def cb_data(bot, update):
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
        ),
-    elif update.data == 'uppl':
-      r_message = update.message.reply_to_message
-      await update.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
-        file = await update.download()
-      await message.reply(text="Downloaded Successfully✅")
-      try:
-        tlink = upload_file(file)[0]
-      await message.reply(text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy " , disable_web_page_preview=True)
-      os.remove(file)
-      except Exception as e:
-        print(e)
-      await message.reply(e, quote=True),
+    
         
     elif update.data == 'help':
       await update.message.edit_text(
