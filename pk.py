@@ -4,6 +4,7 @@ from Text import START_TEXT, HELP_TEXT
 from pyrogram import Client, filters
 from telegraph import upload_file
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram.types.messages_and_media import progress 
 
 
 Pk = Client(
@@ -54,7 +55,7 @@ async def cmd_id_chann(pk, message):
     /id command handler for (super)groups
     :param message: Telegram message with "/id" command
     """
-    msg = [f"This {message.chat.type} chat ID is `{message.chat.id}`"]
+    msg = f"This {message.chat.type} chat ID is `{message.chat.id}`"
     await message.reply(msg)
 
 
@@ -65,7 +66,7 @@ async def he(pk, message):
 @Pk.on_message(filters.media)
 async def uploadp(pk, message):
   await message.reply(text="Downloading⚡...")
-  file = await message.download()
+  file = await message.download(progress=progress)
   await message.reply(text="Downloaded Successfully✅", quote=True)
   try:
      tlink = upload_file(file)[0]
