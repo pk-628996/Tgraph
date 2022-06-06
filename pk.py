@@ -40,7 +40,7 @@ async def id(pk, message):
     text=f""" here is your chat id `{message.from_user.id}` \n tap to copy """
    )
 @Pk.on_message(filters.group & filters.command("id"))
-async def cmd_id_groups(message: types.Message):
+async def cmd_id_groups(pk, message):
     """
     /id command handler for (super)groups
     :param message: Telegram message with "/id" command
@@ -53,7 +53,7 @@ async def cmd_id_groups(message: types.Message):
     await message.reply("\n".join(msg))
 
 @Pk.on_message(filters.supergroup & filters.command("id"))
-async def cmd_id_groups(message: types.Message):
+async def cmd_id_chann(pk, message):
     """
     /id command handler for (super)groups
     :param message: Telegram message with "/id" command
