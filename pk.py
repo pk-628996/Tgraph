@@ -69,7 +69,7 @@ async def uploadp(pk, message):
   await message.reply(text="Downloaded Successfully✅")
   try:
      tlink = upload_file(file)[0]
-     await message.reply(text=f"https://telegra.ph{tlink} \n\n `https://telegra.ph{tlink}` \n\n Tap the link to copy " , disable_web_page_preview=True)
+     await message.reply(text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy " , disable_web_page_preview=True)
      os.remove(file)
   except Exception as e:
      print(e)
@@ -146,7 +146,7 @@ async def cb_data(bot, update):
       ),
     elif update.data == 'close':
        await update.message.edit_text(
-          text="""Closed""",
+          text="""Closed✅""",
           disable_web_page_preview=True
        ),    
     else:
