@@ -39,6 +39,19 @@ async def id(pk, message):
    await message.reply_text(
     text=f""" here is your chat id `{message.from_user.id}` \n tap to copy """
    )
+@Pk.message(ChatTypeFilter(chat_type=["group", "supergroup"]), commands="id")
+async def cmd_id_groups(message: types.Message):
+    """
+    /id command handler for (super)groups
+    :param message: Telegram message with "/id" command
+    """
+    msg = [f"This {message.chat.type} chat ID is {html.code(message.chat.id)}"]
+    if message.sender_chat is None:
+        msg.append(f"Your Telegram ID is {html.code(message.from_user.id)}")
+    else:
+        msg.append(f"And you've sent this message as channel with ID {html.code(message.sender_chat.id)}")
+    await message.reply("\n".join(msg))
+
 
 @Pk.on_message(filters.command("help"))
 async def he(pk, message):
