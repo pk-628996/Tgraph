@@ -45,11 +45,11 @@ async def cmd_id_groups(pk, message):
     /id command handler for (super)groups
     :param message: Telegram message with "/id" command
     """
-    msg = [f"This {message.chat.type} chat ID is {html.code(message.chat.id)}"]
+    msg = f"This {message.chat.type} chat ID is `{message.chat.id}`"
     if message.sender_chat is None:
-        msg.append(f"Your Telegram ID is {html.code(message.from_user.id)}")
+        msg.append(f"Your Telegram ID is `{message.from_user.id}`")
     else:
-        msg.append(f"And you've sent this message as channel with ID {html.code(message.sender_chat.id)}")
+        msg.append(f"And you've sent this message as channel with ID `{message.sender_chat.id}`")
     await message.reply("\n".join(msg))
 
 @Pk.on_message(filters.channel & filters.command("id"))
@@ -58,11 +58,11 @@ async def cmd_id_chann(pk, message):
     /id command handler for (super)groups
     :param message: Telegram message with "/id" command
     """
-    msg = [f"This {message.chat.type} chat ID is {html.code(message.chat.id)}"]
+    msg = [f"This {message.chat.type} chat ID is `{message.chat.id}`"]
     if message.sender_chat is None:
-        msg.append(f"Your Telegram ID is {html.code(message.from_user.id)}")
+        msg.append(f"Your Telegram ID is `{message.from_user.id}`")
     else:
-        msg.append(f"And you've sent this message as channel with ID {html.code(message.sender_chat.id)}")
+        msg.append(f"And you've sent this message as channel with ID `{message.sender_chat.id}`")
     await message.reply("\n".join(msg))
 
 
