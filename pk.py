@@ -147,6 +147,7 @@ async def cb_data(bot, update):
        )
  elif update.data == 'uppl':
       r_message = update.message.reply_to_message
+      async def up(Pk, Message):
       file = await Message.download(r_message)
       try:
         tlink = upload_file(file)[0]
