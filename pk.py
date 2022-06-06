@@ -146,16 +146,17 @@ async def cb_data(bot, update):
        ),
     elif update.data == 'uppl':
       r_message = update.message.reply_to_message
-      await update.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
       file = await update.download()
-      await update.reply(text="Downloaded Successfully✅")
          try:
              tlink = upload_file(file)[0]
-         await update.reply(text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy " , disable_web_page_preview=True)
-      os.remove(file)
+          
+             await answer_update(update, f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy " , disable_web_page_preview=True)
+         os.remove(file)
          except Exception as e:
            print(e)
-           await message.reply(e, quote=True),
+           await message.reply(e, 
+             quote=True
+           ),
             
     elif update.data == 'help':
       await update.message.edit_text(
