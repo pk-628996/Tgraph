@@ -77,7 +77,7 @@ async def uploadp(pk, message):
 
 @Pk.on_message(filters.media)
 async def upl(pk, message):
-   await message.reply(text="What I need to do?", reply_markup=InlineKeybordMarkup( [ [ InlineKeyboardButton('Upload',callback_data='uppl') ] ] ))
+   await message.reply(text="What I need to do?", reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('Upload',callback_data='uppl') ] ] ))
 
 
 
