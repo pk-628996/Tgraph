@@ -62,7 +62,7 @@ async def cmd_id_chann(pk, message):
 async def he(pk, message):
  await message.reply(text=HELP_TEXT)
 
-@Pk.on_message(filters.media)
+"""@Pk.on_message(filters.media)
 async def uploadp(pk, message):
   await message.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
   file = await message.download()
@@ -73,9 +73,9 @@ async def uploadp(pk, message):
      os.remove(file)
   except Exception as e:
      print(e)
-     await message.reply(e, quote=True)
+     await message.reply(e, quote=True)"""
 
-@Pk.on_message(filters.photo)
+@Pk.on_message(filters.media)
 async def upl(pk, message):
    await message.reply(text="What I need to do?", reply_markup=InlineKeybordMarkup( [ [ InlineKeyboardButton('Upload',callback_data='uppl') ] ] ))
 
