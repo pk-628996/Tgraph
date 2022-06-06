@@ -79,7 +79,7 @@ async def uploadp(pk, message):
 async def upl(pk, message):
    file=message.reply_to_message
    await message.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
-   file = await message.download(file)
+   file = await message.download()
    await message.reply(text="Downloaded Successfully✅")
    try:
       tlink = upload_file(file)[0]
