@@ -75,9 +75,19 @@ async def uploadp(pk, message):
      print(e)
      await message.reply(e, quote=True)"""
 
-@Pk.on_message(filters.media)
+@Pk.on_message(filters.command("upt"))
 async def upl(pk, message):
-   await message.reply(text="What I need to do?", reply_markup=InlineKeyboardMarkup( [ [ InlineKeyboardButton('Upload',callback_data='uppl') ] ] ))
+   file=message.reply_to_message
+   await message.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
+   file = await message.download(file)
+   await message.reply(text="Downloaded Successfully✅")
+    try:
+      tlink = upload_file(file)[0]
+      await message.reply(text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}`\n\nTap the link to copy " , disable_web_page_preview=True)
+      os.remove(file)
+    except Exception as e:
+      print(e)
+      await message.reply(e, quote=True)
 
 
 
@@ -145,20 +155,6 @@ async def cb_data(bot, update):
           reply_markup=MENU_BUTTON,
           disable_web_page_preview=True
        )
- elif update.data == 'uppl':
-      @Pk.on_message(filters.media)
-      
-      async def up(pk, message):
-           r_message = message.reply_to_message
-           await message.reply(text="Downloading")
-           file = await message.download(r_message)
-           try:
-             tlink = upload_file(file)[0]
-             await message.reply(text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy ", disable_web_page_preview=True)
-           except Exception as e:
-             print(e)
-             await message.reply(e, quote=True)
-             os.remove(file)
                  
  elif update.data == 'help':
       await update.message.edit_text(
