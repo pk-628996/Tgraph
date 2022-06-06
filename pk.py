@@ -55,7 +55,7 @@ async def cmd_id_groups(message: types.Message):
 
 @Pk.on_message(filters.command("help"))
 async def he(pk, message):
- await message.reply(text="Don't use commands /start or  /id in group ")
+ await message.reply(text=HELP_TEXT)
 
 @Pk.on_message(filters.media)
 async def uploadp(pk, message):
