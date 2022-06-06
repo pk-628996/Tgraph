@@ -149,14 +149,12 @@ async def cb_data(bot, update):
       file = await update.download()
          try:
              tlink = upload_file(file)[0]
+             os.remove(file)
           
-             await answer_update(update, f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy " , disable_web_page_preview=True)
-         os.remove(file)
-         except Exception as e:
-           print(e)
-           await message.reply(e, 
-             quote=True
-           ),
+             await answer_update(update, 
+               f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy " , 
+               disable_web_page_preview=True
+             ),
             
     elif update.data == 'help':
       await update.message.edit_text(
