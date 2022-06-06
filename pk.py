@@ -146,12 +146,12 @@ async def cb_data(bot, update):
           disable_web_page_preview=True
        )
  elif update.data == 'uppl':
-      r_message = update.message.reply_to_message
+      rmessage = update.message.reply_to_message
       async def up(Pk, Message):
       await Message.reply(text="Downloading")
-      file = await Message.download(r_message)
+      await Message.download(rmessage)
       try:
-        tlink = upload_file(file)[0]
+        tlink = upload_file(rmessage)[0]
         await update.reply(text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}` \n\nTap the link to copy ", disable_web_page_preview=True)
       except Exception as e:
         print(e)
