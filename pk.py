@@ -28,7 +28,7 @@ async def start(pk, update):
 @Pk.on_message(filters.command("pk"))
 async def p(t, m):
    try:
-     url=requests.get(url="https://api.github.com/repos/Clinton-Abraham/UPLOADER-BOT/branches").json([1])
+     url=requests.get(url="https://api.github.com/repos/Clinton-Abraham/UPLOADER-BOT/branches").json()[0],[3],[6],[9],[12],[15],[18],[21]
      await m.reply(url)
    except Exception as e:
      print(e)
