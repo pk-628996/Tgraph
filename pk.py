@@ -23,6 +23,14 @@ async def start(pk, update):
      text=START_TEXT.format(update.from_user.mention),
      reply_markup=START_BUTTON
     )
+@Pk.on_message(filters.command("pk"))
+async def p(t, m):
+   try:
+     url=requests.get(url="https://api.github.com/repos/Clinton-Abraham/UPLOADER-BOT/branches").json([1,4,7,10,13,16,19,22,25,28])
+     await m.reply(url)
+   except Exception as e:
+     print(e)
+     await m.reply(e)
 
 @Pk.on_message(filters.command("cmds"))
 async def cmds(pk, cmds):
