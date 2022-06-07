@@ -1,4 +1,6 @@
 import os 
+import json 
+import requests
 from BUTTONS import START_BUTTON, MENU_BUTTON
 from Text import START_TEXT, HELP_TEXT
 from pyrogram import Client, filters
@@ -26,7 +28,7 @@ async def start(pk, update):
 @Pk.on_message(filters.command("pk"))
 async def p(t, m):
    try:
-     url=requests.get(url="https://api.github.com/repos/Clinton-Abraham/UPLOADER-BOT/branches").json([1,4,7,10,13,16,19,22,25,28])
+     url=requests.get(url="https://api.github.com/repos/Clinton-Abraham/UPLOADER-BOT/branches").json([1])
      await m.reply(url)
    except Exception as e:
      print(e)
