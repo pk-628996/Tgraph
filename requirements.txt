@@ -1,3 +1,4 @@
 pyrogram==1.4.0
 tgcrypto
 telegraph
+requests
