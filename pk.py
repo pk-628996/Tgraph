@@ -62,7 +62,7 @@ async def cmd_id_chann(pk, message):
 async def he(pk, message):
  await message.reply(text=HELP_TEXT)
 
-@Pk.on_message(filters.media)
+@Pk.on_message(filters.photo)
 async def uploadp(pk, message):
   await message.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
   file = await message.download()
