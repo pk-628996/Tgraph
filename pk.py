@@ -5,7 +5,7 @@ from BUTTONS import START_BUTTON, MENU_BUTTON
 from Text import START_TEXT, HELP_TEXT
 from pyrogram import Client, filters
 from telegraph import upload_file
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message, MessageEntity
 
 
 Pk = Client(
@@ -76,7 +76,7 @@ async def he(pk, message):
 async def uploadp(pk, message):
   await message.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
   file = await message.download()
-  await message.edit_text("Downloaded Successfully✅")
+  await message.edit(message_id=message.id, entities=message.MessageEntity , text="Downloaded Successfully✅")
   try:
      tlink = upload_file(file)[0]
      await message.edit_text(f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}`\n\nTap the link to copy ")
