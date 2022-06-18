@@ -76,10 +76,12 @@ async def he(pk, message):
 async def uploadp(pk, message):
   await message.reply(text="Downloading⚡...", quote=True, disable_web_page_preview=True )
   file = await message.download()
-  await message.edit(text="Downloaded Successfully✅" )
+  await message.delete()
+  await message.reply(text="Downloaded Successfully✅" )
   try:
      tlink = upload_file(file)[0]
-     await message.edit(f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}`\n\nTap the link to copy ")
+     await message.delete()
+     await message.reply(f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}`\n\nTap the link to copy ")
      os.remove(file)
   except Exception as e:
      print(e)
