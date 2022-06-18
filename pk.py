@@ -118,22 +118,21 @@ async def uploadp(pk, message):
 # else:
 #    await message.reply_text("Size Should Be Less Than 5 mb")"""
 #
-#@Pk.on_message(filters.video)
-#async def uploadvid(client, message):
-#  if(message.video.file_size < 5242880):
-#    message = await message.reply_text("Trying to Download...")
-#    userid = str(message.chat.id)
-#    vid_path = (f"./DOWNLOADS/{userid}.mp4")
-#    vid_path = await client.download_media(message=message, file_name=vid_path)
-#   await message.edit_text("`Trying to Upload...")
-#    try:
-#      tlink = upload_file(vid_path)
-#      await message.edit_text(f"https://telegra.ph{tlink[0]}")     
-#      os.remove(vid_path)   
-#    except:
-#      await message.edit_text("Something really Happend Wrong...") 
-#  else:
-#    await message.reply_text("Size Should Be Less Than 5 mb")
+@Pk.on_message(filters.video)
+async def uploadvid(client, message): 
+  if(message.video.file_size < 5242880):
+    msg = await message.reply_text("Trying to Download...")
+    userid = str(message.chat.id)
+    vid=message.video
+    vid_path = await client.download_media(vid)
+   try:
+     tlink = upload_file(vid_path)
+     await client.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id, text=f"https://telegra.ph{tlink[0]}")     
+     os.remove(vid_path)   
+   except:
+     await client.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id, text="Something really Happened Wrong...") 
+  else:
+     await message.reply_text("Size Should Be Less Than 5 mb")
 
 @Pk.on_callback_query()
 async def cb_data(bot, update):
