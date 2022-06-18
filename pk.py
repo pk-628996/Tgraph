@@ -80,7 +80,7 @@ async def uploadp(pk, message):
   try:
      tlink = upload_file(file)[0]
      await pk.delete_messages(chat_id=message.chat.id, message_ids=msg.message_id)
-     await message.reply(chat_id=message.chat.id, message_id=message.message_id, text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}`\n\nTap the link to copy, disable_web_page_preview=True ")
+     await message.reply(text=f"https://telegra.ph{tlink} \n\n`https://telegra.ph{tlink}`\n\nTap the link to copy", disable_web_page_preview=True)
      os.remove(file)
   except Exception as e:
      print(e)
