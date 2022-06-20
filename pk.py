@@ -37,10 +37,13 @@ async def p(t, m):
 @Pk.on_message(filters.command("cmds"))
 async def cmds(pk, cmds):
    await cmds.reply_text(
-    text= """ Available Commands \n
-          /start -start the bot \n
-          /id - show your chat id \n
-          /cmds - list available commands"""
+    text= """ <b><i>Available Commands</i></b> \n
+          /start-start
+          /id-get your id
+          /get_id-get id of groups on forwarded messages
+          /get_c_id-get id of channels on forwarded messages
+          /help-nothing much
+          /cmds-list available commands"""
    )
 
 @Pk.on_message(filters.private & filters.command("id"))
