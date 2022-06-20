@@ -47,7 +47,13 @@ async def cmds(pk, cmds):
 async def id(pk, message):
  
    await message.reply_text(
-    text=f""" here is your chat id `{message.from_user.id}` \n tap to copy """
+    text=f""" Here is your chat id `{message.from_user.id}` \nTap to copy """
+   )
+@Pk.on_message(filters.command('get_id'))
+async def g(i, d):
+    msg=d.reply_to_message
+    await d.reply_text(
+    text=f"""Here is the chat id `{msg.chat.id}` \nTap to copy """
    )
 @Pk.on_message(filters.group & filters.command("id"))
 async def cmd_id_groups(pk, message):
