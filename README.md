@@ -3,8 +3,10 @@
 
 # Available commands
 ```
-start-start the bot
-id-Your chat id
-cmds-See avalable commands
-help-see help 
+/start-start
+/id-get your id
+/get_id-get id of groups on forwarded messages
+/get_c_id-get id of channels on forwarded messages
+/help-Help
+/cmds-list available commands
 ```
