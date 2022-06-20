@@ -38,12 +38,12 @@ async def p(t, m):
 async def cmds(pk, cmds):
    await cmds.reply_text(
     text= """ <b><i>Available Commands</i></b> \n
-          /start-start
-          /id-get your id
-          /get_id-get id of groups on forwarded messages
-          /get_c_id-get id of channels on forwarded messages
-          /help-nothing much
-          /cmds-list available commands"""
+/start-start\n
+/id-get your id\n
+/get_id-get id of groups on forwarded messages\n
+/get_c_id-get id of channels on forwarded messages\n
+/help-Help\n
+/cmds-list available commands"""
    )
 
 @Pk.on_message(filters.private & filters.command("id"))
