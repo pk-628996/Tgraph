@@ -17,7 +17,7 @@ Pk = Client(
 
 ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
 
-Client.send_message("-1001681840680","Bot")
+Pk.send_message("-1001681840680","Bot")
 @Pk.on_message(filters.private & filters.command("start"))
 async def start(pk, update):
      
