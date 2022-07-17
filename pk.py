@@ -18,6 +18,10 @@ Pk = Client(
 ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
 
 
+@Pk.on_message(filters.command("info"))
+async def mlswy(p,k):
+ r=k.reply_to_message
+ await k.reply(r)
 @Pk.on_message(filters.private & filters.command("start"))
 async def start(pk, update):
      
