@@ -40,7 +40,7 @@ async def p(t, m):
 
 @Pk.on_message(filters.command("cmds"))
 async def cmds(pk, cmds):
-   await cmds.reply_text(
+   await cmds.reply(
     text= """ <b><i>Available Commands</i></b> \n
 /start-start\n
 /id-get your id\n
@@ -53,7 +53,7 @@ async def cmds(pk, cmds):
 @Pk.on_message(filters.private & filters.command("id"))
 async def id(pk, message):
  
-   await message.reply_text(
+   await message.reply(
     text=f""" Here is your chat id `{message.from_user.id}` \nTap to copy """
    )
 @Pk.on_message(filters.command('get_id'))
@@ -63,7 +63,7 @@ async def g(i, d):
     text=f"""Here is the chat id `{msg.forward_from.id}` \nTap to copy """
    )
 @Pk.on_message(filters.command('get_c_id'))
-async def g(i, d):
+async def gk(i, d):
     msg=d.reply_to_message
     await d.reply_text(
     text=f"""Here is the chat id `{msg.forward_from_chat.id}` \nTap to copy """
@@ -151,7 +151,7 @@ async def uploadvid(client, message):
     except:
      await client.edit_message_text(chat_id=message.chat.id, message_id=msg.message_id, text="Something really Happened Wrong...") 
   else:
-     await message.reply_text("Size Should Be Less Than 5 mb")
+     await message.reply("Size Should Be Less Than 5 mb")
 
 @Pk.on_callback_query()
 async def cb_data(bot, update):
