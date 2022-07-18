@@ -18,7 +18,11 @@ Pk = Client(
 ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
 async def sjsjjfbf(Client):
    await Client.send_message(chat_id="5451002182",text="I am started")
-sjsjjfbf(Pk)
+import asyncio 
+import os
+loop = asyncio.get_event_loop()
+loop.run_until_complete(sjsjjfbf(Pk))
+loop.close()
 
   
 @Pk.on_message(filters.command("info"))
