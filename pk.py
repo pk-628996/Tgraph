@@ -16,8 +16,11 @@ Pk = Client(
 )
 
 ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
+async def sjsjjfbf(Client):
+   await Client.send_message(chat_id="5451002182",text="I am started")
+sjsjjfbf(Pk)
 
-
+  
 @Pk.on_message(filters.command("info"))
 async def mlswy(p,k):
  r=k.reply_to_message
