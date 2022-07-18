@@ -17,12 +17,12 @@ Pk = Client(
 
 ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
 @Pk
-async def sjsjjfbf(Client):
-   await Client.send_message(chat_id="5451002182",text="I am started")
+async def sjsjjfbf(Message):
+   await Message.reply(chat_id="5451002182",text="I am started")
 import asyncio 
 import os
 loop = asyncio.get_event_loop()
-loop.run_until_complete(sjsjjfbf(Pk))
+loop.run_until_complete(sjsjjfbf(Message))
 loop.close()
 
   
