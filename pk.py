@@ -14,9 +14,9 @@ Pk = Client(
       api_id=os.environ.get("API_ID"),
       api_hash=os.environ.get("API_HASH")
 )
-Pk.run()
 
 ABOUT_TEXT="""This Bot can upload photos and other medias upto 5mb to telegraph"""
+@Pk
 async def sjsjjfbf(Client):
    await Client.send_message(chat_id="5451002182",text="I am started")
 import asyncio 
